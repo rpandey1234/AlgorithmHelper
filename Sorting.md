@@ -19,6 +19,7 @@ Start with a sorted list of 1 element on the left, and N-1 unsorted items on the
 
 ### Quicksort [Best: O(n log n), Worst: O(n<sup>2</sup>)]
 This is one of the most popular sorting methods. Here's the version using external memory: 
+
 - Pick a “pivot” item
 - Partition the other items by adding them to a “less than pivot” sublist, or “greater than pivot” sublist
 - The pivot goes between the two lists

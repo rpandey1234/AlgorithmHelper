@@ -6,7 +6,7 @@ In a **linked list**, each element has a pointer to another element. A singly li
 
 An **arraylist** is backed by an array, which is a contiguous chunk of memory. Each element of the list is assumed to have the same size, which makes random read access possible in constant time. 
 
-                                 | `ArrayList` | `LinkedList`
+. | `ArrayList` | `LinkedList`
 -------------------------------- | ----------- | ------------
 **Element insertion/removal**    | `O(n)`      | `O(1)`
 **Random read access**           | `O(1)`      | `O(n)`

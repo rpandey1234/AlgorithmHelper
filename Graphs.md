@@ -5,6 +5,7 @@ Given graph G, denote the number of edges with `m`, and the number of nodes with
 If `G` is connected, then `m ≥ n-1`.
 
 There are 2 ways to represent a graph:
+
 - Adjacency Matrix: Represent `G` with an `n by n` matrix A, where A<sub>ij</sub> is 1 iff `G` has an `ij` edge. This has O(n<sup>2</sup>) space requirement.
 - Adjacency List: There is an array of vertices. Every vertex stores a list of adjacent vertices. This data structure allows the storage of additional data on the vertices. The total space requirement is `O(m+n)`.
 
@@ -12,6 +13,7 @@ Adding/removing a vertex to a graph is constant time in adjacency lists, while i
 
 ### Graph Connectivity
 Graph Primitives: breadth first search (BFS) and depth first search (DFS)
+
 - BFS is where you explore a graph layer by layer, in a cautious, tentative way. Keep track of the nodes using a queue, explore the neighbors of a particular node, and only after exploring all those neighbors you explore neighbors that are distance 2 away, and so on. 
 - DFS is a more aggressive search, similar to how you would explore a maze. Keep track of the next node using a stack, or a recursive loop. 
 
