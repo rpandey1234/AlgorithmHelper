@@ -1,10 +1,10 @@
 ---
-title:  "Union Find"
+layout: post
+title:  Union Find
+author: Rahul Pandey
 date:   2017-01-31
 categories: union find disjoint sets
 ---
-
-# Union Find 
 
 The Union Find (also called Disjoint Sets) data structure is a data structure to merge disjoint sets efficiently. The context is that you have a large number of items partioned into several smaller sets. All items are part of exactly 1 set, and there is no overlap between any 2 sets. The supported operations are:
 
