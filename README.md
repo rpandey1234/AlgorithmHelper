@@ -6,7 +6,7 @@ The content here is hosted by Github [here](https://github.com/rpandey1234/Algor
 
 ## Instructions
 
-Above all else, our writing style is understandable. We want readers to get the core concepts of the topic as they read it on the go, on their phone. Our guides are less about facts and more intuition. We prefer language-agnostic concepts rather than going into gritty implementation details. Writing a guide a great way to understand something even better =)
+Above all else, our writing style is understandable. We want readers to get the core concepts of the topic as they read it on the go, on their phone. Our guides are less about facts and more intuition. We prefer language-agnostic concepts rather than going into gritty implementation details. Writing a guide is a great way to understand something even better =)
 
 The content in this project is meant to be easily modifiable. All content is written in [markdown](https://guides.github.com/features/mastering-markdown/). Feel free to modify pages inline. 
 
