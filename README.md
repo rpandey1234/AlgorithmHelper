@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# Algorithm Helper (the good stuff)
 
-You can use the [editor on GitHub](https://github.com/rpandey1234/AlgorithmHelperContent/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Welcome to the open-source content for [Algorithm Helper](https://play.google.com/store/apps/details?id=edu.stanford.algorithms)! We'd like to become a valuable resource for anyone interested in algorithms, data structures, and computer science concepts. We'd love to have you contribute your knowledge; before doing so, please read this page.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files. Test change.
+The content here is hosted by Github [here](https://github.com/rpandey1234/AlgorithmHelper), accessible at: [http://rkpandey.com/AlgorithmHelper/](http://rkpandey.com/AlgorithmHelper/)
 
-### Markdown
+## Instructions
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Above all else, our writing style is understandable. We want readers to get the core concepts of the topic as they read it on the go, on their phone. Our guides are less about facts and more intuition. We prefer language-agnostic concepts rather than going into gritty implementation details. Writing a guide a great way to understand something even better =)
 
-```markdown
-Syntax highlighted code block
+The content in this project is meant to be easily modifiable. All content is written in [markdown](https://guides.github.com/features/mastering-markdown/). Feel free to modify pages inline. 
 
-# Header 1
-## Header 2
-### Header 3
+TODO: how to adding a new page.
 
-- Bulleted
-- List
+## Other sources for learning algorithms
 
-1. Numbered
-2. List
+- [Design and Analysis of Algorithms at Stanford](https://web.stanford.edu/class/archive/cs/cs161/cs161.1138/)
+- [Programming Abstractions at Stanford](http://cs.stanford.edu/people/eroberts//CS106BX-Reader.pdf)
+- [Algorithms on Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms)
 
-**Bold** and _Italic_ and `Code` text
+## Acknoledgements
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rpandey1234/AlgorithmHelperContent/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- [Codepath](http://codepath.com/) serves as a template for how useful a community wiki can be, along with wonderful teaching and mentorship. 
+- [BetterExplained](https://betterexplained.com/) is a fantastic example of how to explain concepts in an intuitive way, written by the fantastic Kalid Azad. 
+- [Vimal](http://www.vimalathithanr.com/) has made meaningful contributions in building and advising about the app. 
