@@ -8,6 +8,8 @@ One technique is to start with a “sorted list” of one element, and merge uns
 
 Several O(n<sup>2</sup>) sorting algorithms exist, and while they may not be used much, it is valuable to have an understanding of how they work. 
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 ### Bubble Sort [Best: O(n), Worst: O(n<sup>2</sup>)]
 Starting on the left, compare adjacent items and keep “bubbling” the larger one to the right (it’s in its final place). Bubble sort the remaining N -1 items.
 
