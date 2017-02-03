@@ -19,4 +19,4 @@ TODO: real world examples
 
 ### Sources
 
-[Disjoint Sets](https://www.youtube.com/watch?v=gcmjC-OcWpI)
+- [Disjoint Sets](https://www.youtube.com/watch?v=gcmjC-OcWpI)

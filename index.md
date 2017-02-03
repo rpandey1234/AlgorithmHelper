@@ -1,10 +1,8 @@
 # Algorithm Helper (the good stuff)
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
-    </li>
-  {% endfor %}
-</ul>
+{% for post in site.posts %}
+  <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+  {{ post.excerpt }}
+  <p><b>{{ post.date | date: '%B %d, %Y' }} | {{ post.author }}</b></p>
+  <hr>
+{% endfor %}

@@ -10,6 +10,8 @@ Above all else, our writing style is understandable. We want readers to get the 
 
 The content in this project is meant to be easily modifiable. All content is written in [markdown](https://guides.github.com/features/mastering-markdown/). Feel free to modify pages inline. 
 
+*Disclaimer:* the accuracy of the content is not guaranteed. The content is a perpetual work in progress, and there are likely to be mistakes. 
+
 TODO: how to adding a new page.
 
 ## Other sources for learning algorithms
