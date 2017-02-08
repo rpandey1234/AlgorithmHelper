@@ -26,5 +26,5 @@ TODO: explanation of construction and runtime, examples
 
 ### Sources
 
-- [Stanford CS166 Lecture](http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/lectures/03/Small03.pdf)
+- [Stanford CS166 Lecture (April 7)](http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/)
 - [Wikipedia link](https://en.wikipedia.org/wiki/Suffix_tree)

@@ -36,5 +36,5 @@ Assuming the data are integers, in a range of 0-k. Create an array of size K to 
 The fastest runtime for a comparison-based sorting algorithm is `O(n logn)`. This is provably true; you can convince yourself of this by noting that the complete decision tree for sorting `n` elements has height `Ω(n logn)`. There are at least `n!` leaves in the tree (one for each of the `n!` permutations of `n` elements). The worst case number of comparisons performed corresponds to the maximal height of the tree, `h`; a tree of height `h` has at most 2<sup>h</sup> leaves. From 2<sup>h</sup> ≥ `n!` => h ≥ `Ω(n logn)`.
 
 # References
-- [Sorting lower bound (Bowdoin class)](http://www.bowdoin.edu/~ltoma/teaching/cs231/fall07/Lectures/sortLB.pdf)
+- [Sorting lower bound (Bowdoin class)](http://www.bowdoin.edu/~ltoma/teaching/cs231/fall16/)
 - [Sorting algorithms by BetterExplained](https://betterexplained.com/articles/sorting-algorithms/)
