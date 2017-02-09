@@ -30,7 +30,8 @@ In a directed graph G, a strongly connected component (SCC) is a set of vertices
 
 If each SCC is contracted to a single vertex, the resulting graph is a directed acyclic graph (DAG), the condensation of G. (If the resulting graph was not a DAG, then the resulting cycle could be used to collapse into a single SCC.)
 
-We can use Kosaraju's Algorithm for finding SCCs. (TODO)
+We can use Kosaraju's Algorithm for finding SCCs. Kosaraju's Algorithm is a linear time algorithm to find the strongly connected components of a directed graph. It works by marking each vertext in the graph as unvisited, then performing a DFS traversal of the graph. Next, we reverse the direction of all edges in the graph to get the transpose graph. Now we process the vertices in the reverse order from the earlier traversal, and perform a DFS on each node. The set of reachable nodes from these set of DFS traversals will be your set of SCCs. 
 
-### Minimum Spanning Trees
-There are two main algorithms for finding minimum spanning trees (MST), both of which are greedy algorithms, Prim's algorithm and Kruskal's algorithm. (TODO)
+# References
+- [Wikipedia page for Kosarju's Algorithm](https://en.wikipedia.org/wiki/Kosaraju's_algorithm)
+- [Geeks for geek Kosaraju's Algorithm](http://www.geeksforgeeks.org/strongly-connected-components/)
