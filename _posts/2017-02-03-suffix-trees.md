@@ -12,7 +12,21 @@ The suffix tree is probably the most powerful and versatile data structure for s
 - Locating matches for a regular expression pattern within a string. 
 - A linear time solution for the longest common substring problem. 
 
+Contents:
+
+[Suffix Tries](#suffix-tries)
+
+[Suffix Trees](#suffix-trees)
+
 The tradeoff for this power is that the storage for a string's suffix tree requires several multiples more space than storing the string itself. 
+
+## Suffix Tries
+
+Let's start by talking about a suffix trie. 
+
+The downside of a suffix trie is that the amount of space required to store the trie grows quadractically with respect to the length of the input string. So for even relatively small strings, say 500 characters, the number of nodes required in the trie could be more than 100K. This leads us to a suffix tree, which compresses the tree. 
+
+## Suffix Trees
 
 The suffix tree for a string `S` of length `n` is defined as a tree such that: 
 
@@ -28,3 +42,4 @@ TODO: explanation of construction and runtime, examples
 
 - [Stanford CS166 Lecture (April 7)](http://web.stanford.edu/class/archive/cs/cs166/cs166.1166/)
 - [Wikipedia link](https://en.wikipedia.org/wiki/Suffix_tree)
+- [Ben Langmead's Youtube walkthrough](https://www.youtube.com/watch?v=hLsrPsFHPcQ)
