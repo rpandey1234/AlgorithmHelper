@@ -12,17 +12,23 @@ The suffix tree is probably the most powerful and versatile data structure for s
 - Locating matches for a regular expression pattern within a string. 
 - A linear time solution for the longest common substring problem. 
 
-Contents:
-
-[Suffix Tries](#suffix-tries)
-
-[Suffix Trees](#suffix-trees)
-
 The tradeoff for this power is that the storage for a string's suffix tree requires several multiples more space than storing the string itself. 
+
+Suffix trees are used heavily in bioinformatics, where we often want to search for patterns in DNA or protein sequences (which can be viewed as strings of characters). We can also use suffix trees for data compression, where we can easily find repeated data. Suffix trees are ideal anytime we can afford to spend a lot of time pre-processing the text, but we want to answer queries about the text very quickly. 
+
+Contents
+===========
+
+- [Suffix Tries](#suffix-tries)
+- [Suffix Trees](#suffix-trees)
 
 ## Suffix Tries
 
-Let's start by talking about a suffix trie. 
+Let's start by talking about a suffix trie. The suffix trie is the smallest tree such that: 
+
+- each edge is labeled with a chaaracter in the alphabet
+- each node has at most 1 outgoing edge labeled with c, for any c in the alphabet
+- each suffix of the tree is "spelled out" along some path starting at the root of the tree. 
 
 The downside of a suffix trie is that the amount of space required to store the trie grows quadractically with respect to the length of the input string. So for even relatively small strings, say 500 characters, the number of nodes required in the trie could be more than 100K. This leads us to a suffix tree, which compresses the tree. 
 
