@@ -13,6 +13,15 @@ all this means below, but for illustration imagine a grocery store. Shoppers can
 instead have a concurrent process for many shoppers. This example may sound trivial, but consider that much code is written
 serially.
 
+Contents
+===========
+
+- [Threads and Processors](#threads-and-processors)
+- [Parallelism and Concurrency](#parallelism-and-concurrency)
+- [Difficulties with Concurrency](#difficulties-with-concurrency)
+- [Deadlock and Livelock](#deadlock-and-livelock)
+- [Solving for Deadlock and Livelock](#solving-for-deadlock-and-livelock)
+
 ### Threads and Processors
 
 Before we talk about concurrency, let's establish what we mean by threads and processors.
@@ -47,6 +56,7 @@ now a day, enable a device to run multiple processors, and therefore multiple th
 
 **Parallelism** is the procedure where threads are distributed across multiple processes. For illustration, imagine
 we'd like to call Job above multiple times. We distribute as follows:
+
 ```
 Processor1 - Processors2 - Processor3
 Do Job       Do Job        Do Job
@@ -81,6 +91,7 @@ func LongJob2() {
 ```
 
 Often you'll see code structured as follows:
+
 ```
 func main() {
   Do LongJob1()
@@ -92,6 +103,7 @@ func main() {
 
 This whole process takes 6 seconds because LongJob2 is blocked by LongJob1, i.e. the commands are serialized. The processor
 executes the following instructions
+
 ```
 Do Assign a = 1
 Do Wait 1 Second
@@ -103,6 +115,7 @@ Do Print z
 ```
 
 Concurrency will combine the instructions of both threads to more efficient run. The code may look as follows:
+
 ```
 func main() {
   Concurrently Do LongJob1()
@@ -114,6 +127,7 @@ func main() {
 ```
 
 The thread now may look as follows:
+
 ```
 Do Assign a=1, x=3
 Do Sleep 1 Second, Sleep 1 Second
@@ -133,7 +147,7 @@ But in affect, the program can feel as if instructions are executed simultaneous
 Concurrency is powerful, however this power doesn't come for free. Concurrency in a complex codebase isn't always easy
 to reason about and concurrency related bugs can be difficult to track. 
 
-Perhaps the most common pitfalls around concurrency involve accessing shared memory. In particular multiple jobs might to
+Perhaps the most common pitfalls around concurrency involve accessing shared memory. In particular, multiple jobs might need to
 access and modify a variable shared between them, (e.g. graphs, arrays and counter variables). Primary known problems
 around shared memory are classified as follows:
 
@@ -145,6 +159,7 @@ around shared memory are classified as follows:
 
 Race conditions occur when multiple threads modify a shared resource without appropriate coordination. Imagine the following
 code.
+
 ```
 func Increment(x) {
   x = x + 1
@@ -165,10 +180,11 @@ If they access it simulatenously, both processes register an initial value of x=
 problem is called a **race condition**.
 
 The solution is to use a **lock**. Locks are objects which limit the access to a piece of memory. Without getting
-too deeply into the variety of locks, one of the common types of locks is called a **mutex**. Mutexes establishes 
+too deeply into the variety of locks, one of the common types of locks is called a **mutex**. Mutexes establish 
 the rule that only the thread which locks a piece of memory can unlock it.
 
 We can remove the race condition within our code by modifying it as follows:
+
 ```
 func Increment(x, mutex) {
   mutex.Lock(x)
@@ -197,6 +213,7 @@ Locks help prevent race conditions, but if not used carefully your process might
 complete, and vice versa.
 
 To exhibit deadlock imagine the following code where we increment two variables, x and y:
+
 ```
 func IncrementXThenY(x, y, mutex) {
   mutex.Lock(x)
@@ -278,7 +295,7 @@ func main() {
 }
 ```
 
-Do you see the livelock? The first function locks x and attempts to lock y. If it can't lock y it releases x and tries again,
+Do you see the livelock? The first function locks x and attempts to lock y. If it can't lock y, it releases x and tries again,
 where it immediately locks x again. Vice versa for the second function. Thus the functions are continuously locking and 
 unlocking resources without making any progress.
 
