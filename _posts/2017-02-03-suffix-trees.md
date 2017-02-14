@@ -6,43 +6,77 @@ date:   2017-02-03
 categories: suffix trees trie
 ---
 
-The suffix tree is probably the most powerful and versatile data structure for string processing that's ever been invented. A suffix tree is a compressed trie containing all the suffixes of a given text as keys, and positions in the text as their values. We'll unpack what that means, but suffix trees enable particularly fast implementations of many important string operations, such as: 
+The suffix tree, invented in 1973, is probably the most powerful and versatile known data structure for string processing. The suffix tree represents all the suffxes of a string in **O(n)** space and can be built in **O(n)** time, where **n** is the length of the string. 
 
-- Find a substring in string `S`, even if we want to allow a certain number of mistakes in the substring. 
+Contents
+===========
+- [Summary](#summary)
+- [Suffix Tries](#suffix-tries)
+- [Suffix Trees](#suffix-trees)
+- [Real World Application](#real-world-application)
+
+## Summary
+A suffix tree is a compressed trie containing all the suffixes of a given text as keys, and positions in the text as their values. We'll unpack what that means, but suffix trees enable particularly fast implementations of many important string operations, such as: 
+
+- Find a substring in string **S**, even if we want to allow a certain number of mistakes in the substring. 
 - Locating matches for a regular expression pattern within a string. 
 - A linear time solution for the longest common substring problem. 
 
 The tradeoff for this power is that the storage for a string's suffix tree requires several multiples more space than storing the string itself. 
 
-Suffix trees are used heavily in bioinformatics, where we often want to search for patterns in DNA or protein sequences (which can be viewed as strings of characters). We can also use suffix trees for data compression, where we can easily find repeated data. Suffix trees are ideal anytime we can afford to spend a lot of time pre-processing the text, but we want to answer queries about the text very quickly. 
-
-Contents
-===========
-
-- [Suffix Tries](#suffix-tries)
-- [Suffix Trees](#suffix-trees)
-
 ## Suffix Tries
 
-Let's start by talking about a suffix trie. The suffix trie is the smallest tree such that: 
+Let's start by talking about a suffix trie, which isn't a very practical data structure but it helps us better understand the tree in the next section. The suffix trie is the smallest tree such that: 
 
-- each edge is labeled with a chaaracter in the alphabet
-- each node has at most 1 outgoing edge labeled with c, for any c in the alphabet
-- each suffix of the tree is "spelled out" along some path starting at the root of the tree. 
+- each edge is labeled with a chaaracter **c** in the alphabet **Σ**
+- each node has at most 1 outgoing edge labeled with **c**, for any **c** in **Σ**
+- each suffix of the tree is "spelled out" along some path starting at the root of the tree
+
+Here is the suffix trie for the string **abaaba**. The symbol **$** indicates the end of the word. 
+
+![Suffix trie]({{ site.baseurl }}/assets/suffix_trie.png)
+
+Take, for example, the suffix **ba**. If we trace its path in the tree, we find two branches at that node, one with a **$** (indicating that this is a suffix), and another branch which indicates that **ba* is a substring elsewhere in the string. 
+
+Try answering these questions about the suffix tree:
+
+- How do we count the **number of times** a string S occurs as a substring of T?
+	- Follow the path corresponding to S (answer is 0 if we fall off the tree) to the node n, and the answer is the # of leaf nodes in the subtree rooted at n. Try this out with the **aba** and you should see the answer is 2. 
+- How do we find the *longest repeated substring* of T?
+	- The depth of the tree represents the length of the substring, so we want to find the node of highest depth in T which has more than 1 child (indicating that is repeated). In this case, the answer is again **aba**, since it is the only substring leading to a node of depth 3 with 2 children. 
 
 The downside of a suffix trie is that the amount of space required to store the trie grows quadractically with respect to the length of the input string. So for even relatively small strings, say 500 characters, the number of nodes required in the trie could be more than 100K. This leads us to a suffix tree, which compresses the tree. 
 
 ## Suffix Trees
 
-The suffix tree for a string `S` of length `n` is defined as a tree such that: 
+The suffix tree is very similar to the trie, except we coalesce non-branching paths into a single endge with a string label (so we have strings on edges instead of characters). This reduces the number of nodes and edges in the tree, and guarantees that internal nodes have **> 1 child**. 
 
-- The tree has exactly n leaves numbered from 1 to n.
+So now our string **abaaba** has this suffix tree:
+
+![Suffix tree1]({{ site.baseurl }}/assets/suffix_tree1.png)
+
+Some observations:
+
+- There should be exactly **n + 1** leaves in the tree since there are **n + 1** possible substrings (the empty string, plus the substring starting at each character). 
+- Since each internal node has at least 2 children, we know the upper bound on the number of internal (non-leaf) nodes will be the number of nodes in a full binary tree (i.e. the suffix tree will certainly *not* be as compact as the binary tree. The number of internal nodes in a binary tree of height **h + 1** is **2<sup>h</sup> - 1** -- think about a full binary tree of height 2 having 2 leaf nodes (1 internal), height 3 having 4 leaf nodes (3 internal), and height 4 having 8 leaf nodes (7 internal). For us, since we know the number of leaf nodes is **n + 1**, this means we have **≤ n** internal nodes.
+- Summing the above, we have an upper bound on the number of nodes in the suffix tree to be **≤ 2n + 1 = O(n)**.
+
+Formally, the suffix tree for a string **S** of length **n** is defined as a tree such that: 
+
+- The tree has exactly **n** leaves numbered from 1 to **n**.
 - Except for the root, every internal node has at least two children.
 - Each edge is labeled with a non-empty substring of S.
 - No two edges starting out of a node can have string-labels beginning with the same character.
 - The string obtained by concatenating all the string-labels found on the path from the root to leaf i spells out suffix S[i..n], for i from 1 to n.
 
-TODO: explanation of construction and runtime, examples
+
+## Real World Application
+
+Suffix trees are ideal anytime we can afford to spend a lot of time pre-processing the text, but we want to answer queries about the text very quickly. 
+
+One important use for suffix trees is in bioinformatics, where we often want to search for patterns in DNA or protein sequences (which can be viewed as strings of characters). In these applications, we generally want to find a short string (called the pattern) among a much larger string (simply called the string), either with exact or inexact matching. 
+
+Another use of suffix trees is to find the longest common substring among a set of strings, or even longest common subsequence with a bit more finagling. They are also commonly used to identify repetive structures, as is often the case in human genomes. In fact, suffix trees are used in some data compression algorithms because of their ability to identify repeated data. 
 
 ### Sources
 
