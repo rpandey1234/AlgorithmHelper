@@ -48,6 +48,7 @@ Try answering these questions about the suffix tree:
 Follow the path corresponding to S (answer is 0 if we fall off the tree) to the node n, and the answer is the # of leaf nodes in the subtree rooted at n. Try this out with the aba and you should see the answer is 2. 
 </details>
 <br>
+<!-- http://movb.de/jekyll-details-support.html -->
 <details>
 <summary>How do we find the longest repeated substring of T?</summary>
 The depth of the tree represents the length of the substring, so we want to find the node of highest depth in T which has more than 1 child (indicating that it is repeated). In this case, the answer is aba, since it is the only substring corresponding to a node of depth 3 with 2 children. 

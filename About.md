@@ -1,5 +1,3 @@
-# Algorithm Helper
-
 Welcome to [Algorithm Helper](https://play.google.com/store/apps/details?id=edu.stanford.algorithms)! We'd like to become a valuable resource for anyone interested in algorithms, data structures, and computer science concepts. We'd love to have you contribute your knowledge; before doing so, please read this page.
 
 The content here is hosted by Github [here](https://github.com/rpandey1234/AlgorithmHelper), accessible at: [http://rkpandey.com/AlgorithmHelper/](http://rkpandey.com/AlgorithmHelper/)
@@ -14,7 +12,7 @@ The content in this project is meant to be easily modifiable. All content is wri
 
 #### A note on style
 
-Above all else, our writing should be understandable. We want readers to grok the core concepts of the topic as they read about it on their phones. Our guides are less about facts and more intuition. We prefer language-agnostic concepts rather than going into gritty implementation details. Writing a guide is a great way to understand something better!
+Above all else, our writing should be understandable. We want readers to understand the core concepts of the topic as they read about it on their phones. Our guides are less about facts and more intuition. We prefer language-agnostic concepts rather than going into gritty implementation details. Writing a guide is a great way to understand something better!
 
 ## Other sources for learning algorithms
 
