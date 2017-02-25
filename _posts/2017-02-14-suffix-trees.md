@@ -41,7 +41,7 @@ Here is the suffix trie for the string **abaaba**. The symbol **$** indicates th
 
 Take, for example, the suffix **ba**. If we trace its path in the tree, we find two branches at that node, one with a **$** (indicating that this is a suffix), and another branch which indicates that **ba** is a substring elsewhere in the string. 
 
-Try answering these questions about the suffix tree:
+Try answering these questions about the suffix trie:
 
 <details>
 <summary>How do we count the number of times a string S occurs as a substring of T?</summary>
@@ -65,17 +65,17 @@ So now our string **abaaba** has this suffix tree:
 
 ![Suffix tree1]({{ site.baseurl }}/assets/suffix_tree1.png)
 
-Some observations:
+Some observations about the number of nodes in the trie:
 
-- There should be exactly **n + 1** leaves in the tree since there are **n + 1** possible substrings (the empty string, plus the substring starting at each character). 
-- Since each internal node has at least 2 children, we know the upper bound on the number of internal (non-leaf) nodes will be the number of nodes in a full binary tree (i.e. the suffix tree will certainly *not* be as compact as the binary tree. The number of internal nodes in a binary tree of height **h + 1** is **2<sup>h</sup> - 1** -- think about a full binary tree of height 2 having 2 leaf nodes (1 internal), height 3 having 4 leaf nodes (3 internal), and height 4 having 8 leaf nodes (7 internal). For us, since we know the number of leaf nodes is **n + 1**, this means we have **≤ n** internal nodes.
+- Leaf nodes: There should be exactly **n + 1** leaves in the tree since there are **n + 1** possible substrings (the empty string, plus the substring starting at each character). 
+- Internal nodes: Since each internal (non-leaf) node has at least 2 children, we know the upper bound on the number of internal nodes will be the number of internal nodes in a full binary tree (i.e. the suffix tree will certainly *not* be as compact as the binary tree). Think about a full binary tree of height 2 having 2 leaf nodes (1 internal), height 3 having 4 leaf nodes (3 internal), and height 4 having 8 leaf nodes (7 internal). In a binary tree of height **h**, the number of leaf nodes is **2<sup>h</sup>** and internal nodes is **2<sup>h</sup> - 1**. For us, since we know the number of leaf nodes is **n + 1**, this means we have **≤ n** internal nodes.
 - Summing the above, we have an upper bound on the number of nodes in the suffix tree to be **≤ 2n + 1 = O(n)**.
 
-However, if you add the lengths of all the strings on the edges, the storage space is still **O(n<sup>2</sup>)** edges, so we're not where we want yet. 
+However, if you add the lengths of all the strings on the edges, the storage space is still **O(n<sup>2</sup>)** edges, so we don't have a linear space construction yet. 
 
 ## Suffix Trees v2
 
-Instead of having strings labelling the edges, we simply store a pair of numbers: the start and end index for where the substring first occurs in the string. The leaves will store the offset of the suffix that the leave corresponds to-- each leaf will thus have a label from **1 to n** of which suffix in the tree it represents. So the final suffix tree looks like this:
+Instead of having strings labelling the edges, we simply store a pair of numbers: the start and end index for where the substring first occurs in the string. The leaves will store the offset of the suffix that the leaf corresponds to-- each leaf will thus have a label from **1 to n** of which suffix in the tree it represents. So the final suffix tree looks like this:
 
 ![Suffix tree2]({{ site.baseurl }}/assets/suffix_tree2.png)
 
