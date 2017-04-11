@@ -3,7 +3,7 @@ layout: post
 title:  Bits and Bytes
 author: Rahul Pandey
 date:   2017-04-10
-categories: bits, binary, bytes
+categories: bits bytes
 ---
 
 Computers work with the simplest possible unit of data: a bit (short for `binary digit`). A bit has value 0 or 1. Groups of 8 bits together make up a byte. Computer memory is discussed in terms of bytes, such as a kilobyte or megabyte. Hexadecimal, or base 16, is used to represent 4 bits as a time, so a byte is represented as 2 hexadecimal digits. Since 2<sup>4</sup> is 16, each digit in hexadecimal can take on 16 possible values: 0-9 represent zero to nine, and A-F represent ten to fifteen. For example, a byte could be 0xA3, where the `0x` prefix is used to indicate hexadecimal (the value of 0xA3 in hexadecimal is 163).
