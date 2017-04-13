@@ -6,7 +6,7 @@ date:   2017-04-10
 categories: bits bytes
 ---
 
-Computers work with the simplest possible unit of data: a bit (short for `binary digit`). A bit has value 0 or 1. Groups of 8 bits together make up a byte. Computer memory is discussed in terms of bytes, such as a kilobyte or megabyte. Hexadecimal, or base 16, is used to represent 4 bits as a time, so a byte is represented as 2 hexadecimal digits. Since 2<sup>4</sup> is 16, each digit in hexadecimal can take on 16 possible values: 0-9 represent zero to nine, and A-F represent ten to fifteen. For example, a byte could be 0xA3, where the `0x` prefix is used to indicate hexadecimal (the value of 0xA3 in hexadecimal is 163).
+Computers work with the simplest possible unit of data: a bit (short for `binary digit`). A bit has value 0 or 1. Groups of 8 bits together make up a byte. Computer memory is discussed in terms of bytes, such as a kilobyte or megabyte. Hexadecimal, or base 16, is used to represent 4 bits as a time, so a byte is represented as 2 hexadecimal digits. Since 2<sup>4</sup> is 16, each digit in hexadecimal can take on 16 possible values: 0-9 represent zero to nine, and A-F represent ten to fifteen. For example, a byte could be 0xA3, where the `0x` prefix is used to indicate hexadecimal (the value of 0xA3 in decimal is 163).
 
 Contents
 ===========
@@ -32,9 +32,9 @@ Depending on who you talk to, a kilobyte is either 10<sup>3</sup> (1000) bytes, 
 Common bit manipulations are AND, OR, XOR, NOT, and bit shifts [2]. These operators take in two bits and output a bit. The meanings of these are clear, except XOR, which returns a 1 if exactly one of the input bits was 1 (but not both). OR is represented by `|`, AND by `&`, NOT by `~`, and XOR by `^`. Think about why the following bit properties are true: 
 
 | **XOR** | **AND** | **OR** |
-| x ^ 0s = x | x & 0s = 0 | x `|` 0s = x
-| x ^ 1s = ~x | x & 1s = x |  x `|` 1s = 1
-| x ^ x = 0 | x & x = x | x `|` x = x
+| x ^ 0s = x | x & 0s = 0 | x `|` 0s = x |
+| x ^ 1s = ~x | x & 1s = x |  x `|` 1s = 1 |
+| x ^ x = 0 | x & x = x | x `|` x = x |
 
 Some questions use these binary operators in their solution. 
 
