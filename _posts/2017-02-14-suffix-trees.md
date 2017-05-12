@@ -6,7 +6,7 @@ date:   2017-02-14
 categories: suffix trees trie
 ---
 
-The suffix tree, invented in 1973, is probably the most powerful and versatile data structure for string processing. The suffix tree represents all the suffxes of a string **S** in **O(n)** space and can be built in **O(n)** time, where **n** is the length of the string. 
+The suffix tree, invented in 1973, is probably the most powerful and versatile data structure for string processing. The suffix tree represents all the suffixes of a string **S** in **O(n)** space and can be built in **O(n)** time, where **n** is the length of the string. 
 
 Contents
 ===========
@@ -31,7 +31,7 @@ The tradeoff for this power is that the storage for a string's suffix tree requi
 
 Let's start by talking about a suffix trie, which isn't a very practical data structure but it helps us better understand the tree in the next section. The suffix trie is the smallest tree such that: 
 
-- each edge is labeled with a chaaracter **c** in the alphabet **Σ**
+- each edge is labeled with a character **c** in the alphabet **Σ**
 - each node has at most 1 outgoing edge labeled with **c**, for any **c** in **Σ**
 - each suffix of the tree is "spelled out" along some path starting at the root of the tree
 
@@ -55,7 +55,7 @@ The depth of the tree represents the length of the substring, so we want to find
 </details>
 
 <br>
-The downside of a suffix trie is that the amount of space required to store the trie grows quadractically with respect to the length of the input string. So for even relatively small strings, say 500 characters, the number of nodes required in the trie could be more than 100K. This leads us to a suffix tree, which compresses the tree. 
+The downside of a suffix trie is that the amount of space required to store the trie grows quadratically with respect to the length of the input string. So for even relatively small strings, say 500 characters, the number of nodes required in the trie could be more than 100K. This leads us to a suffix tree, which compresses the tree. 
 
 ## Suffix Trees v1
 
@@ -97,7 +97,7 @@ There is a remarkable algorithm called Ukkonen's algorithm which can construct t
 
 ## Generalized Suffix Trees
 
-Generalized suffix trees are when we build a suffix tree over multiple strings composed together. This is how we actually solve the longest commoon substring problem in linear time. If we want to find the longest common substring of two string X and Y, we generate the suffix tree for **X#Y$**, where **#** and **$** are the two special end of string characters. Once we have built up the suffix tree (using Ukkonen's Algorithm), we need to find the deepest node which has leaves corresponding to indices in both string X and Y (which we'd know from the lengths of the strings). This operation requires a depth-first search, which is still linear in time and space. 
+Generalized suffix trees are when we build a suffix tree over multiple strings composed together. This is how we actually solve the longest common substring problem in linear time. If we want to find the longest common substring of two string X and Y, we generate the suffix tree for **X#Y$**, where **#** and **$** are the two special end of string characters. Once we have built up the suffix tree (using Ukkonen's Algorithm), we need to find the deepest node which has leaves corresponding to indices in both string X and Y (which we'd know from the lengths of the strings). This operation requires a depth-first search, which is still linear in time and space. 
 
 You can see the power and versatility that emerge from this construction!
 
@@ -107,7 +107,7 @@ Suffix trees are ideal anytime we can afford to spend a lot of time pre-processi
 
 One important use for suffix trees is in bioinformatics, where we often want to search for patterns in DNA or protein sequences (which can be viewed as strings of characters). In these applications, we generally want to find a short string (called the pattern) among a much larger string (simply called the string), either with exact or inexact matching. 
 
-Another use of suffix trees is to find the longest common substring among a set of strings, or even longest common subsequence (that requires a bit more finagling). They are also commonly used to identify repetive structures, as is often the case in human genomes. In fact, suffix trees are used in some data compression algorithms because of their ability to identify repeated data. 
+Another use of suffix trees is to find the longest common substring among a set of strings, or even longest common subsequence (that requires a bit more finagling). They are also commonly used to identify repetitive structures, as is often the case in human genomes. In fact, suffix trees are used in some data compression algorithms because of their ability to identify repeated data. 
 
 ### Sources
 
@@ -115,4 +115,7 @@ Another use of suffix trees is to find the longest common substring among a set 
 - [Wikipedia link](https://en.wikipedia.org/wiki/Suffix_tree)
 - [Ben Langmead's Youtube walkthrough](https://www.youtube.com/watch?v=hLsrPsFHPcQ)
 - [Ukkonen's Algorithm explanation on Stack Overflow](http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english/9513423#9513423)
-- [Visualizing Ukkonen's Alogrithm](http://brenden.github.io/ukkonen-animation/)
+- [Visualizing Ukkonen's Algorithm](http://brenden.github.io/ukkonen-animation/)
+
+
+

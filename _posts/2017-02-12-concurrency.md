@@ -7,7 +7,7 @@ categories: threads concurrency
 ---
 
 Concurrency is a fundamental tool for maximizing performance and CPU power. Concurrency is a mechanism which deserializes
-programming instructions and allows multiple threads to be run simulataneously on the same processing core. We'll clarify what
+programming instructions and allows multiple threads to be run simultaneously on the same processing core. We'll clarify what
 all this means below, but for illustration imagine a grocery store. Shoppers can be thought of having a set of instructions, e.g.
 "get milk, eggs, kombucha". Grocery stores would be extremely inefficient if they allowed only one shopper in at a time, and
 instead have a concurrent process for many shoppers. This example may sound trivial, but consider that much code is written
@@ -58,7 +58,7 @@ now a day, enable a device to run multiple processors, and therefore multiple th
 we'd like to call Job above multiple times. We distribute as follows:
 
 ```
-Processor1 - Processors2 - Processor3
+Processor1 - Processor2 - Processor3
 Do Job       Do Job        Do Job
 ```
 
@@ -140,7 +140,7 @@ This allows our main function to run in 3 seconds instead of 6. Imagine if we ha
 main would then take 300 seconds to run serially but still 3 seconds concurrently.
 
 (Note: The instructions don't necessarily happen instantly as suggested above, but can rather be in very quick succession.
-But in affect, the program can feel as if instructions are executed simultaneously).
+But in effect, the program can feel as if instructions are executed simultaneously).
 
 ### Difficulties with Concurrency
 
@@ -176,7 +176,7 @@ func main() {
 ```
 
 What do you think the result will be? Both methods are trying to access the same patch of memory (the variable x) and increment it.
-If they access it simulatenously, both processes register an initial value of x=0 and increment it to x=1. This type of 
+If they access it simultaneously, both processes register an initial value of x=0 and increment it to x=1. This type of 
 problem is called a **race condition**.
 
 The solution is to use a **lock**. Locks are objects which limit the access to a piece of memory. Without getting
@@ -209,7 +209,7 @@ Now we're assured the program will print 2.
 
 Locks help prevent race conditions, but if not used carefully your process might be blocked indefinitely.
 
-**Deadlock** occurs when a process can't complete because it locks a resource necessesary for some other process to
+**Deadlock** occurs when a process can't complete because it locks a resource necessary for some other process to
 complete, and vice versa.
 
 To exhibit deadlock imagine the following code where we increment two variables, x and y:
@@ -309,3 +309,6 @@ of this solution is in complex code bases, establishing and maintaining a hierar
 Another solution is to always release locks after some randomized time. You lock a resource x and if the lock is held for
 too long, then the lock is released and you try again (potentially after some small wait time). This isn't always a desirable 
 solution because it can slow down the process unnecessarily. Further the user needs to maintain what a good lock/waiting times.
+
+
+
